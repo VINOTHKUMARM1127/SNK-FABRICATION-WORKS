@@ -66,6 +66,7 @@ const ContactSection = () => {
                 loading="lazy" 
                 referrerPolicy="no-referrer-when-downgrade"
                 className="transition-all duration-[10s] ease-linear group-hover:scale-105 filter contrast-[0.95]"
+                title="Google Maps displaying the location of our fabrication workshop in Allasandra, Bangalore"
               ></iframe>
               <div className="absolute top-4 right-4 sm:top-5 sm:right-5">
                 <div className="glass bg-white/90 border border-white shadow-[0_8px_20px_rgba(0,0,0,0.1)] px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-[8px] sm:text-[9px] font-black uppercase tracking-widest text-brand-primary animate-float">

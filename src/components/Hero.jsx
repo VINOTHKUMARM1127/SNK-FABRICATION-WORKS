@@ -4,13 +4,16 @@ import { motion } from 'framer-motion';
 const Hero = () => {
   return (
     <section className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
-      {/* Background Image with Slow Pan/Zoom */}
-      <div 
-        className="absolute inset-0 w-full h-full bg-cover bg-right bg-no-repeat transition-transform duration-[20s] ease-linear hover:scale-110"
-        style={{ 
-          backgroundImage: 'url("https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=1920")',
-        }}
-      />
+      {/* Optimized Background Image for LCP Performance */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden">
+        <img 
+          src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=1920" 
+          alt="" 
+          fetchpriority="high"
+          loading="eager"
+          className="absolute inset-0 w-full h-full object-cover object-right transition-transform duration-[20s] ease-linear hover:scale-110"
+        />
+      </div>
 
       {/* Dark Glass Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-900/80 via-gray-900/60 to-brand-dark/90 backdrop-blur-[4px] z-10" />

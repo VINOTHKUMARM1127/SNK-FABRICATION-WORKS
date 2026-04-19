@@ -57,10 +57,10 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Toggle */}
         <button 
           className={`md:hidden p-2 transition-colors ${scrolled || isOpen || location.pathname !== '/' ? 'text-gray-700' : 'text-white'}`}
           onClick={() => setIsOpen(!isOpen)}
+          aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>

@@ -14,7 +14,7 @@ const About = () => {
         {/* Architectural Image Background with Fade */}
         <div
           className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-[20s] ease-linear hover:scale-105 opacity-30"
-          style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1541888031520-5cd5e523315a?auto=format&fit=crop&q=80&w=1920")' }}
+          style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1541888031520-5cd5e523315a?auto=format&fit=crop&q=80&w=1200")' }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-transparent to-transparent backdrop-blur-[2px] z-10" />
 

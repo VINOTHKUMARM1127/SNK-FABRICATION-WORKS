@@ -35,13 +35,13 @@ const Footer = () => {
               Premium quality fabrication works in Bangalore. Specializing in gates, grills, railings, and structural steel works for 7+ years.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:text-white hover:bg-blue-600 hover:border-transparent transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-lg">
+              <a href="#" aria-label="Follow S.N.K Fabrication on Facebook" className="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:text-white hover:bg-blue-600 hover:border-transparent transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-lg">
                 <FacebookIcon />
               </a>
-              <a href="#" className="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:text-white hover:bg-pink-600 hover:border-transparent transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-lg">
+              <a href="#" aria-label="Follow S.N.K Fabrication on Instagram" className="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:text-white hover:bg-pink-600 hover:border-transparent transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-lg">
                 <InstagramIcon />
               </a>
-              <a href="#" className="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:text-white hover:bg-sky-500 hover:border-transparent transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-lg">
+              <a href="#" aria-label="Follow S.N.K Fabrication on Twitter" className="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:text-white hover:bg-sky-500 hover:border-transparent transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-lg">
                 <TwitterIcon />
               </a>
             </div>
