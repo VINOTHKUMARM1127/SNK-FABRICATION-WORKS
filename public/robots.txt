@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap Link
+Sitemap: https://snk-fabrication-works.vercel.app/sitemap.xml
