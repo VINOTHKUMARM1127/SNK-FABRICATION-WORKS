@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-primary: #E65100;
+  --color-brand-light: #F8FAFC;
+  --color-brand-dark: #0B0F19;
+  --color-brand-gold: #D4AF37;
+  --font-sans: "Outfit", sans-serif;
+}
+
+@utility glass {
+  background-color: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #FFEDD5 0%, #F8FAFC 50%, #E0F2FE 100%);
+  background-attachment: fixed;
+  color: #0B0F19;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background-color: var(--color-brand-primary);
+  color: white;
+}
+
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-brand-primary);
+  border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c2410c; /* darker orange */
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-brand-primary) transparent;
+}
