@@ -2,13 +2,51 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/src/assets/svg.jpeg" />
+    <link rel="icon" type="image/jpeg" href="/src/assets/svg.jpeg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"></noscript>
+
+    <!-- DNS Prefetch for External Domains -->
+    <link rel="dns-prefetch" href="https://images.unsplash.com" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="https://www.google.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Preload Hero Image (Critical LCP Resource) -->
+    <link
+      rel="preload"
+      as="image"
+      href="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=60&w=1200&fm=webp"
+      fetchpriority="high"
+    />
+
+    <!-- Non-blocking Font Loading -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;900&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+
     <title>S.N.K Fabrication Works | Premium Engineering</title>
+
+    <!-- Inline Critical CSS for Above-the-Fold -->
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+        background: linear-gradient(135deg, #FFEDD5 0%, #F8FAFC 50%, #E0F2FE 100%);
+        -webkit-font-smoothing: antialiased;
+      }
+      #root { min-height: 100vh; }
+    </style>
   </head>
   <body>
     <div id="root"></div>

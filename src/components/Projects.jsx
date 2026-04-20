@@ -3,12 +3,12 @@ import { X, ZoomIn, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const projects = [
-  { id: 1, type: "Main Gates", title: "Modern HPL Sliding Gate", img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1200", desc: "A luxurious 20ft automated sliding gate combining robust mild steel with premium High-Pressure Laminate (HPL) wood finish panels. Designed for maximum security and aesthetic appeal." },
-  { id: 2, type: "SS Railings", title: "Glass & SS-304 Railing", img: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=1200", desc: "Premium grade SS-304 staircase railings integrated with 12mm toughened glass. Features mirror-finish circular profiles and invisible floor mounting for a sleek, modern villa interior." },
-  { id: 3, type: "Truss Work", title: "Architectural Roof Truss", img: "https://images.unsplash.com/photo-1503387762-592972158f89?auto=format&fit=crop&q=80&w=1200", desc: "Heavy-duty MS structural truss installation for a 5000 sq.ft industrial warehouse. Engineered for high wind resistance with anti-corrosion premier epoxy coating." },
-  { id: 4, type: "CNC Cutting", title: "Elevation CNC Facade", img: "https://images.unsplash.com/photo-1518005020252-ee7026df2158?auto=format&fit=crop&q=80&w=1200", desc: "Custom geometric CNC laser-cut aluminum composite panels for a commercial building facade. Finished with champagne gold powder coating for a contemporary architectural look." },
-  { id: 5, type: "Safety Grills", title: "Geometric Safety Grills", img: "https://images.unsplash.com/photo-1582266255765-fa5cf1a1d501?auto=format&fit=crop&q=80&w=1200", desc: "Minimalist window and balcony safety grills fabricated from heavy-gauge square bars. Features clean geometric lines and a scratch-resistant matte black finish." },
-  { id: 6, type: "Truss Work", title: "Commercial Pergola Truss", img: "https://images.unsplash.com/photo-1449156001935-d28bc3df72a5?auto=format&fit=crop&q=80&w=1200", desc: "Custom structural steel pergola for a luxury rooftop cafe. Features integrated lighting fixtures and a robust truss frame designed for weather durability." }
+  { id: 1, type: "Main Gates", title: "Modern HPL Sliding Gate", img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=60&w=800&fm=webp", desc: "A luxurious 20ft automated sliding gate combining robust mild steel with premium High-Pressure Laminate (HPL) wood finish panels. Designed for maximum security and aesthetic appeal." },
+  { id: 2, type: "SS Railings", title: "Glass & SS-304 Railing", img: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=60&w=800&fm=webp", desc: "Premium grade SS-304 staircase railings integrated with 12mm toughened glass. Features mirror-finish circular profiles and invisible floor mounting for a sleek, modern villa interior." },
+  { id: 3, type: "Truss Work", title: "Architectural Roof Truss", img: "https://images.unsplash.com/photo-1503387762-592972158f89?auto=format&fit=crop&q=60&w=800&fm=webp", desc: "Heavy-duty MS structural truss installation for a 5000 sq.ft industrial warehouse. Engineered for high wind resistance with anti-corrosion premier epoxy coating." },
+  { id: 4, type: "CNC Cutting", title: "Elevation CNC Facade", img: "https://images.unsplash.com/photo-1518005020252-ee7026df2158?auto=format&fit=crop&q=60&w=800&fm=webp", desc: "Custom geometric CNC laser-cut aluminum composite panels for a commercial building facade. Finished with champagne gold powder coating for a contemporary architectural look." },
+  { id: 5, type: "Safety Grills", title: "Geometric Safety Grills", img: "https://images.unsplash.com/photo-1582266255765-fa5cf1a1d501?auto=format&fit=crop&q=60&w=800&fm=webp", desc: "Minimalist window and balcony safety grills fabricated from heavy-gauge square bars. Features clean geometric lines and a scratch-resistant matte black finish." },
+  { id: 6, type: "Truss Work", title: "Commercial Pergola Truss", img: "https://images.unsplash.com/photo-1449156001935-d28bc3df72a5?auto=format&fit=crop&q=60&w=800&fm=webp", desc: "Custom structural steel pergola for a luxury rooftop cafe. Features integrated lighting fixtures and a robust truss frame designed for weather durability." }
 ];
 
 const Projects = () => {
@@ -37,7 +37,15 @@ const Projects = () => {
               onClick={() => setSelectedProject(item)}
             >
               <div className="w-full h-72 rounded-[1.5rem] overflow-hidden relative shadow-inner">
-                <img src={item.img} alt={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 filter contrast-[0.95]" />
+                <img
+                  src={item.img}
+                  alt={item.title}
+                  loading="lazy"
+                  decoding="async"
+                  width="800"
+                  height="288"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 filter contrast-[0.95]"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/95 via-gray-900/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity"></div>
               
                 <div className="absolute bottom-0 left-0 w-full p-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
@@ -67,15 +75,24 @@ const Projects = () => {
       {selectedProject && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-gray-900/60 backdrop-blur-md" onClick={() => setSelectedProject(null)}>
           <div className="glass bg-white/90 border border-white rounded-[3rem] w-full max-w-4xl overflow-hidden shadow-[0_30px_100px_rgba(0,0,0,0.4)] relative animate-in fade-in zoom-in duration-300" onClick={e => e.stopPropagation()}>
-            <button 
+            <button
               className="absolute top-4 right-4 bg-white/80 hover:bg-brand-primary text-gray-900 hover:text-white p-2.5 rounded-xl backdrop-blur-md transition-all duration-300 z-30 shadow-sm border border-gray-100/50"
               onClick={() => setSelectedProject(null)}
+              aria-label="Close project detail"
             >
               <X className="w-5 h-5" />
             </button>
             <div className="grid md:grid-cols-5 p-3 max-h-[85vh] overflow-y-auto md:overflow-visible">
               <div className="md:col-span-2 h-64 md:h-full rounded-[2rem] overflow-hidden relative shadow-inner shrink-0">
-                <img src={selectedProject.img} alt={selectedProject.title} className="w-full h-full object-cover" />
+                <img
+                  src={selectedProject.img}
+                  alt={selectedProject.title}
+                  loading="lazy"
+                  decoding="async"
+                  width="600"
+                  height="400"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="md:col-span-3 p-6 lg:p-12 flex flex-col justify-center space-y-4 md:space-y-5">
                 <span className="text-brand-primary text-[11px] font-black uppercase tracking-[0.2em]">{selectedProject.type}</span>

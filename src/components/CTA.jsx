@@ -4,7 +4,7 @@ const CTA = () => {
   return (
     <section className="py-16 bg-transparent relative overflow-hidden">
       {/* Background Deep Accents */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-primary/10 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3 animate-pulse"></div>
+      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1541888031520-5cd5e523315a?auto=format&fit=crop&q=40&w=1200&fm=webp')] opacity-10 bg-cover mix-blend-overlay" role="presentation"></div>
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-amber-400/10 rounded-full blur-[120px] -translate-x-1/3 translate-y-1/3"></div>
 
       <div className="max-w-6xl mx-auto px-6 relative z-10 animate-fade-in-up">
@@ -27,18 +27,20 @@ const CTA = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a 
                 href="tel:+917204097229" 
+                aria-label="Call S.N.K Fabrication Works for a quote"
                 className="group/btn relative inline-flex items-center justify-center bg-gradient-to-r from-brand-primary to-orange-500 text-white px-8 py-4 rounded-xl font-black text-xs uppercase tracking-widest transition-all hover:to-orange-400 hover:-translate-y-1 shadow-[0_8px_20px_rgba(230,81,0,0.3)] hover:shadow-[0_15px_30px_rgba(230,81,0,0.4)] active:scale-95 w-full sm:w-auto"
               >
-                <PhoneCall className="w-4 h-4 mr-3" />
+                <PhoneCall className="w-4 h-4 mr-3" aria-hidden="true" />
                 Call Us
               </a>
               
               <a 
                 href="https://wa.me/917204097229" 
                 target="_blank" rel="noreferrer"
+                aria-label="Chat with S.N.K Fabrication Works on WhatsApp"
                 className="group/btn relative inline-flex items-center justify-center glass bg-white/80 border-t border-l border-white text-gray-900 px-8 py-4 rounded-xl font-black text-xs uppercase tracking-widest transition-all hover:bg-white hover:text-brand-primary hover:-translate-y-1 shadow-lg active:scale-95 w-full sm:w-auto"
               >
-                <MessageCircle className="w-4 h-4 mr-3 text-[#25D366] group-hover/btn:scale-110 transition-transform" />
+                <MessageCircle className="w-4 h-4 mr-3 text-[#25D366] group-hover/btn:scale-110 transition-transform" aria-hidden="true" />
                 WhatsApp Us
               </a>
             </div>

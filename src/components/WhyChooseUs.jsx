@@ -52,6 +52,7 @@ const WhyChooseUs = () => {
 
             <button 
               onClick={() => document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' })}
+              aria-label="Contact us to discuss your project"
               className="group relative inline-flex items-center justify-center bg-gradient-to-r from-brand-primary to-orange-500 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-sm hover:to-orange-400 transition-all shadow-[0_10px_20px_rgba(230,81,0,0.2)] hover:shadow-[0_15px_30px_rgba(230,81,0,0.3)] hover:-translate-y-1 overflow-hidden"
             >
               Discuss Your Project
@@ -66,7 +67,7 @@ const WhyChooseUs = () => {
                 className={`group glass bg-white/60 p-8 rounded-[2rem] shadow-[0_10px_30px_rgb(0,0,0,0.03)] border-t border-l border-white transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgb(230,81,0,0.1)] hover:bg-white/90 ${idx % 2 !== 0 ? 'sm:mt-12' : ''}`}
               >
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-50 to-white flex items-center justify-center mb-6 transition-all duration-500 shrink-0 border border-brand-primary/10 group-hover:from-brand-primary group-hover:to-orange-500 group-hover:scale-110 shadow-sm group-hover:shadow-[0_10px_20px_rgba(230,81,0,0.3)]">
-                  <item.icon className="w-8 h-8 text-brand-primary transition-colors duration-500 group-hover:text-white" />
+                  <item.icon className="w-8 h-8 text-brand-primary transition-colors duration-500 group-hover:text-white" aria-hidden="true" />
                 </div>
                 
                 <h4 className="text-lg font-black text-gray-900 mb-3 tracking-wide">{item.title}</h4>

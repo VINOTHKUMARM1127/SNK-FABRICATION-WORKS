@@ -16,7 +16,7 @@ const ServicesPage = () => {
         {/* Decorative Background */}
         <div 
           className="absolute inset-0 w-full h-full bg-cover bg-center opacity-20 pointer-events-none"
-          style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1510154221590-ff63e90a136f?auto=format&fit=crop&q=80&w=1200")' }}
+          style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1510154221590-ff63e90a136f?auto=format&fit=crop&q=40&w=1200&fm=webp")' }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-transparent to-transparent backdrop-blur-[2px] z-10" />
         
@@ -66,8 +66,12 @@ const ServicesPage = () => {
             </div>
             <div className="relative animate-fade-in-up">
               <img 
-                src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80&w=800" 
+                src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=60&w=800&fm=webp" 
                 alt="Precision Metalwork" 
+                loading="lazy"
+                decoding="async"
+                width="800"
+                height="533"
                 className="rounded-[2.5rem] shadow-2xl relative z-10"
               />
               <div className="absolute inset-0 bg-brand-primary/10 rounded-[2.5rem] rotate-3 -z-10 translate-x-4"></div>

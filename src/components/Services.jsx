@@ -81,7 +81,11 @@ const Services = () => {
                 <div className="w-full h-full rounded-[1.8rem] overflow-hidden relative shadow-inner">
                   <img 
                     src={service.img} 
-                    alt={service.title} 
+                    alt={service.title}
+                    loading="lazy"
+                    decoding="async"
+                    width="600"
+                    height="256"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 filter contrast-[0.95]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

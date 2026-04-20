@@ -14,7 +14,7 @@ const About = () => {
         {/* Architectural Image Background with Fade */}
         <div
           className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-[20s] ease-linear hover:scale-105 opacity-30"
-          style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1541888031520-5cd5e523315a?auto=format&fit=crop&q=80&w=1200")' }}
+          style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1541888031520-5cd5e523315a?auto=format&fit=crop&q=60&w=1200&fm=webp")' }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-transparent to-transparent backdrop-blur-[2px] z-10" />
 
@@ -65,8 +65,12 @@ const About = () => {
               <div className="absolute inset-0 bg-gradient-to-tr from-brand-primary/20 to-amber-500/20 rounded-[3rem] translate-x-6 -translate-y-6"></div>
               <div className="relative z-10 glass bg-white/30 border border-white p-2 rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] hover:-translate-y-2 transition-transform duration-500">
                 <img
-                  src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=800"
+                  src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=60&w=800&fm=webp"
                   alt="Fabrication Workshop"
+                  loading="lazy"
+                  decoding="async"
+                  width="800"
+                  height="500"
                   className="rounded-[2.5rem] w-full h-[500px] object-cover filter contrast-[0.95]"
                 />
               </div>

@@ -101,7 +101,15 @@ const GalleryPage = () => {
                 onClick={() => setSelectedImg(item)}
               >
                 <div className="w-full h-full rounded-[2rem] overflow-hidden relative shadow-inner">
-                  <img src={item.img} alt={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 filter contrast-[0.95]" />
+                  <img
+                    src={item.img}
+                    alt={item.title}
+                    loading="lazy"
+                    decoding="async"
+                    width="600"
+                    height="400"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 filter contrast-[0.95]"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                     <div className="w-14 h-14 rounded-full glass bg-white/20 flex items-center justify-center transform scale-50 group-hover:scale-100 transition-all duration-500">
                       <ZoomIn className="text-white w-6 h-6" />
@@ -128,11 +136,20 @@ const GalleryPage = () => {
             <button
               className="absolute top-4 right-4 bg-white/80 hover:bg-brand-primary text-gray-900 hover:text-white p-2.5 rounded-xl backdrop-blur-md transition-all duration-300 z-30 shadow-sm border border-gray-100/50"
               onClick={() => setSelectedImg(null)}
+              aria-label="Close image preview"
             >
               <X className="w-5 h-5" />
             </button>
             <div className="w-full rounded-[2rem] overflow-hidden shadow-inner bg-black">
-              <img src={selectedImg.img} alt={selectedImg.title} className="w-full max-h-[80vh] object-contain" />
+              <img
+                src={selectedImg.img}
+                alt={selectedImg.title}
+                loading="lazy"
+                decoding="async"
+                width="900"
+                height="600"
+                className="w-full max-h-[80vh] object-contain"
+              />
             </div>
             <div className="text-white text-center mt-6 mb-2 flex flex-col items-center">
               <span className="text-amber-500 text-[10px] font-black uppercase tracking-[0.2em] mb-2">{selectedImg.category}</span>

@@ -33,7 +33,7 @@ const HowItWorks = () => {
             <div key={index} className="flex flex-col items-center text-center max-w-[200px] mx-auto group">
               <div className="w-24 h-24 rounded-[2rem] glass bg-white/80 border-t border-l border-white flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.05)] mb-8 group-hover:-translate-y-3 transition-all duration-500 group-hover:shadow-[0_20px_50px_rgba(230,81,0,0.15)] relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <step.icon className="w-10 h-10 text-brand-primary group-hover:scale-110 transition-transform duration-500 relative z-10" />
+                <step.icon className="w-10 h-10 text-brand-primary group-hover:scale-110 transition-transform duration-500 relative z-10" aria-hidden="true" />
               </div>
               <h4 className="text-xl font-black text-gray-900 mb-3 tracking-tight group-hover:text-brand-primary transition-colors duration-300">{step.title}</h4>
               <p className="text-[15px] font-medium text-gray-600 leading-relaxed">{step.desc}</p>
