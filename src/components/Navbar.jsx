@@ -5,15 +5,32 @@ import { Menu, X } from 'lucide-react';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+      
+      // Determine if scrolled beyond threshold
+      setScrolled(currentScrollY > 20);
+
+      // Hide/Show logic based on direction
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down & passed threshold
+        setShowNavbar(false);
+      } else {
+        // Scrolling up
+        setShowNavbar(true);
+      }
+      
+      setLastScrollY(currentScrollY);
     };
-    window.addEventListener('scroll', handleScroll);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   const links = [
     { name: 'Home', path: '/' },
@@ -23,7 +40,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`fixed w-full z-40 transition-all duration-500 ease-in-out ${scrolled || isOpen ? 'glass py-3 top-0 md:top-0' : (location.pathname !== '/' ? 'glass py-3 top-0 md:top-8' : 'bg-gray-900/40 backdrop-blur-md py-3 top-0 md:top-8')} `}>
+    <nav className={`fixed w-full z-40 transition-all duration-500 ease-in-out ${!showNavbar && !isOpen ? '-translate-y-full' : 'translate-y-0'} ${scrolled || isOpen ? 'glass py-3 top-0 md:top-0' : (location.pathname !== '/' ? 'glass py-3 top-0 md:top-8' : 'bg-gray-900/40 backdrop-blur-md py-3 top-0 md:top-8')} `}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center relative">
 
         {/* Logo */}

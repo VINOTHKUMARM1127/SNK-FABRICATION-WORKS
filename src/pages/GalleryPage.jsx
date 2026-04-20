@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import SEO from '../seo/SEO';
 import { X, ZoomIn } from 'lucide-react';
 import CTA from '../components/CTA';
@@ -27,6 +27,18 @@ const categories = ["All", "MS Fabrication", "CNC Cutting", "Main Gates", "Safet
 const GalleryPage = () => {
   const [filter, setFilter] = useState("All");
   const [selectedImg, setSelectedImg] = useState(null);
+
+  // Scroll Lock Strategy
+  useEffect(() => {
+    if (selectedImg) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedImg]);
 
   const filteredProjects = filter === "All" ? allProjects : allProjects.filter(p => p.category === filter);
 
@@ -131,8 +143,11 @@ const GalleryPage = () => {
 
       {/* Modal */}
       {selectedImg && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-gray-900/80 backdrop-blur-md" onClick={() => setSelectedImg(null)}>
-          <div className="relative max-w-5xl w-full h-auto glass bg-white/10 p-2 rounded-[2.5rem] shadow-[0_30px_100px_rgba(0,0,0,0.5)] animate-in fade-in zoom-in duration-300" onClick={e => e.stopPropagation()}>
+        <div className="fixed inset-0 z-[100] p-4 sm:p-6 flex items-center justify-center transition-all duration-300" onClick={() => setSelectedImg(null)}>
+          {/* Backdrop */}
+          <div className="absolute inset-0 bg-gray-900/80 backdrop-blur-md animate-in fade-in duration-300"></div>
+          
+          <div className="relative max-w-5xl w-full h-auto glass bg-white/10 p-2 rounded-[2rem] sm:rounded-[2.5rem] shadow-[0_40px_100px_rgba(0,0,0,0.6)] animate-in fade-in zoom-in duration-300 z-10" onClick={e => e.stopPropagation()}>
             <button
               className="absolute top-4 right-4 bg-white/80 hover:bg-brand-primary text-gray-900 hover:text-white p-2.5 rounded-xl backdrop-blur-md transition-all duration-300 z-30 shadow-sm border border-gray-100/50"
               onClick={() => setSelectedImg(null)}

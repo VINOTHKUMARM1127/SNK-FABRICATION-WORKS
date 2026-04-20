@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react';
 const Hero = () => {
   return (
     <section
-      className="relative h-screen min-h-[600px] sm:min-h-[700px] flex items-center justify-center overflow-hidden"
+      className="relative h-screen h-[100dvh] min-h-[600px] sm:min-h-[700px] flex items-center justify-center overflow-hidden"
       aria-label="Hero Section - S.N.K Fabrication Works"
     >
       {/* Optimized LCP Hero Image — WebP, 1200px, eager, high priority */}
@@ -29,7 +29,7 @@ const Hero = () => {
       />
 
       {/* Content — CSS animation instead of framer-motion */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-20 w-full text-center flex flex-col items-center justify-center pt-24 animate-fade-in-up">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-20 w-full text-center flex flex-col items-center justify-center animate-fade-in-up">
 
         <div className="inline-flex items-center space-x-3 mb-6 sm:mb-8 bg-white/10 rounded-full px-5 py-2 border border-white/20">
           <div className="w-2 h-2 rounded-full bg-brand-primary animate-ping" aria-hidden="true" />
