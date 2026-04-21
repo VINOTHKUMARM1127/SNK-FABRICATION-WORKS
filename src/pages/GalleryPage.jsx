@@ -144,7 +144,7 @@ const GalleryPage = () => {
                   <div className="absolute bottom-6 left-6 right-6">
                     <div className="glass bg-white/90 border border-white px-5 py-3 rounded-2xl translate-y-8 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 shadow-[0_10px_20px_rgba(0,0,0,0.1)]">
                       <p className="text-brand-primary text-[9px] font-black uppercase tracking-[0.2em] mb-1">{item.category}</p>
-                      <h4 className="font-black text-gray-900 text-lg leading-tight tracking-tight">{item.title}</h4>
+                      <h2 className="font-black text-gray-900 text-lg leading-tight tracking-tight">{item.title}</h2>
                     </div>
                   </div>
                 </div>

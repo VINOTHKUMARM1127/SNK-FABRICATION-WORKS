@@ -8,7 +8,7 @@ export default {
     extend: {
       colors: {
         brand: {
-          primary: "#E65100", // A richer, deeper premium orange/amber
+          primary: "#C84000", // Darkened premium orange/amber to pass WCAG AAA contrast
           light: "#F8FAFC", // Sleek slate-50 equivalent
           dark: "#0B0F19", // Deep obsidian/navy for luxury darks
           gold: "#D4AF37", // True premium gold accent

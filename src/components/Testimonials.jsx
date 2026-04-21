@@ -66,7 +66,7 @@ const Testimonials = () => {
           </div>
 
           {/* Indicators */}
-          <div className="flex justify-center space-x-3 mt-10">
+          <div className="flex justify-center flex-wrap -space-x-2 mt-8">
             {testimonials.map((_, i) => (
               <button 
                 key={i}
@@ -78,8 +78,10 @@ const Testimonials = () => {
                   }, 300);
                 }}
                 aria-label={`Go to testimonial ${i + 1}`}
-                className={`h-1.5 transition-all duration-500 rounded-full ${active === i ? 'w-8 bg-white' : 'w-2 bg-white/30 hover:bg-white/50'}`}
-              />
+                className="group relative flex items-center justify-center min-w-[48px] min-h-[48px]"
+              >
+                <span className={`h-1.5 transition-all duration-500 rounded-full ${active === i ? 'w-8 bg-white' : 'w-2 bg-white/30 group-hover:bg-white/50'}`} aria-hidden="true" />
+              </button>
             ))}
           </div>
         </div>

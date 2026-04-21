@@ -65,9 +65,9 @@ const ContactSection = () => {
                   <item.icon className="w-5 h-5 sm:w-6 sm:h-6 lg:w-5 lg:h-5 text-brand-primary group-hover:text-white transition-colors duration-500" />
                 </div>
                 <div className="min-w-0 flex-1 w-full translate-y-0 group-hover:-translate-y-0.5 transition-transform duration-500">
-                  <h4 className="text-[10px] sm:text-xs lg:text-[10px] font-black uppercase tracking-[0.25em] text-brand-primary mb-1 opacity-90">
+                  <h3 className="text-[10px] sm:text-xs lg:text-[10px] font-black uppercase tracking-[0.25em] text-brand-primary mb-1 opacity-90">
                     {item.label}
-                  </h4>
+                  </h3>
                   <p className="text-gray-900 font-semibold text-[clamp(13px,4vw,16px)] lg:text-[14px] xl:text-[15px] leading-snug mb-1 tracking-tight break-words">
                     {item.value}
                   </p>

@@ -49,7 +49,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-gray-900 font-extrabold mb-6 uppercase tracking-wider text-sm">Quick Links</h4>
+            <h3 className="text-gray-900 font-extrabold mb-6 uppercase tracking-wider text-sm">Quick Links</h3>
             <ul className="space-y-3">
               {['Home', 'About Us', 'Services', 'Our Projects'].map((item, i) => (
                 <li key={i}>
@@ -63,7 +63,7 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h4 className="text-gray-900 font-extrabold mb-6 uppercase tracking-wider text-sm">Our Services</h4>
+            <h3 className="text-gray-900 font-extrabold mb-6 uppercase tracking-wider text-sm">Our Services</h3>
             <ul className="space-y-3">
               {['Gate Fabrication', 'Grills & Railings', 'Structural Truss', 'Pipeline Work', 'Custom Welding'].map((item, i) => (
                 <li key={i}>
@@ -77,7 +77,7 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-gray-900 font-extrabold mb-6 uppercase tracking-wider text-sm">Contact Info</h4>
+            <h3 className="text-gray-900 font-extrabold mb-6 uppercase tracking-wider text-sm">Contact Info</h3>
             <ul className="space-y-4">
               <li className="flex items-start text-sm group">
                 <MapPin className="w-5 h-5 text-brand-primary shrink-0 mr-3 group-hover:scale-110 transition-transform" />
