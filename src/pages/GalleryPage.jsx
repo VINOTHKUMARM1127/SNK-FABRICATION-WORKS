@@ -3,30 +3,39 @@ import SEO from '../seo/SEO';
 import { X, ZoomIn } from 'lucide-react';
 import CTA from '../components/CTA';
 
-import msFabrication from '../assets/ms.jpg';
-import elevationCncCutting from '../assets/cnc.jpg';
-import designerMainGates from '../assets/main_gate.jpg';
-import safetyGrills from '../assets/grils.jpg';
-import stainlessSteelRailings from '../assets/railing.jpg';
-import weldingCustomWorks from '../assets/custom.jpg';
-
-const allProjects = [
-  { id: 1, category: "Main Gates", title: "Designer HPL Gate", img: designerMainGates },
-  { id: 2, category: "SS Railings", title: "Glass Staircase Railing", img: stainlessSteelRailings },
-  { id: 3, category: "MS Fabrication", title: "Industrial Godown Roof", img: msFabrication },
-  { id: 4, category: "Safety Grills", title: "Designer Balcony Grill", img: safetyGrills },
-  { id: 5, category: "CNC Cutting", title: "Elevation CNC Facade", img: elevationCncCutting },
-  { id: 6, category: "Welding", title: "Custom Welding Works", img: weldingCustomWorks },
-  { id: 7, category: "SS Railings", title: "Balcony Steel Railing", img: stainlessSteelRailings },
-  { id: 8, category: "Main Gates", title: "Automated Swing Gate", img: designerMainGates },
-  { id: 9, category: "MS Fabrication", title: "Structural Steel Frame", img: msFabrication },
-];
+import { API_URL } from '../api/config';
 
 const categories = ["All", "MS Fabrication", "CNC Cutting", "Main Gates", "Safety Grills", "SS Railings", "Welding"];
 
 const GalleryPage = () => {
+  const [allProjects, setAllProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState("All");
   const [selectedImg, setSelectedImg] = useState(null);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await fetch(`${API_URL}/projects`);
+        const data = await response.json();
+        if (data.success) {
+          const mappedProjects = data.data.map(p => ({
+            id: p._id,
+            title: p.title,
+            category: p.category,
+            img: p.image,
+            desc: p.description
+          }));
+          setAllProjects(mappedProjects);
+        }
+      } catch (err) {
+        console.error('Error fetching gallery projects:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchProjects();
+  }, []);
 
   // Scroll Lock Strategy
   useEffect(() => {
@@ -105,7 +114,12 @@ const GalleryPage = () => {
 
           {/* Grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((item, i) => (
+            {loading ? (
+              <div className="col-span-full py-20 flex flex-col items-center justify-center text-gray-500">
+                <div className="w-12 h-12 border-4 border-brand-primary border-t-transparent rounded-full animate-spin mb-4" />
+                <p className="font-bold tracking-widest text-[10px] uppercase">Loading Gallery...</p>
+              </div>
+            ) : filteredProjects.map((item, i) => (
               <div
                 key={item.id}
                 className="group relative rounded-[2.5rem] overflow-hidden cursor-pointer shadow-[0_10px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_50px_rgba(230,81,0,0.15)] transition-all duration-500 border border-white glass hover:-translate-y-2 p-2 aspect-[4/3] lg:aspect-square animate-fade-in-up"
