@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { fadeUp, staggerContainer, staggerItem, viewportOnce } from '../lib/animations';
 
 const FacebookIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
@@ -15,13 +17,25 @@ const TwitterIcon = () => (
 
 const Footer = () => {
   return (
-    <footer className="bg-slate-50 pt-20 pb-10 border-t border-gray-200 relative overflow-hidden">
+    <motion.footer
+      className="bg-slate-50 pt-20 pb-10 border-t border-gray-200 relative overflow-hidden"
+      variants={fadeUp}
+      initial="hidden"
+      whileInView="visible"
+      viewport={viewportOnce}
+    >
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-primary/5 rounded-full blur-[100px] pointer-events-none" />
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <motion.div
+        className="max-w-7xl mx-auto px-6 relative z-10"
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportOnce}
+      >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 relative">
-          
+
           {/* Brand */}
-          <div className="space-y-6">
+          <motion.div className="space-y-6" variants={staggerItem}>
             <Link to="/" className="flex items-center space-x-2 group">
               <div className="w-12 h-10 bg-brand-primary rounded-lg flex items-center justify-center text-white font-bold text-xl group-hover:scale-110 transition-transform duration-300">
                 SNK
@@ -45,10 +59,10 @@ const Footer = () => {
                 <TwitterIcon />
               </a>
             </div>
-          </div>
+          </motion.div>
 
           {/* Quick Links */}
-          <div>
+          <motion.div variants={staggerItem}>
             <h3 className="text-gray-900 font-extrabold mb-6 uppercase tracking-wider text-sm">Quick Links</h3>
             <ul className="space-y-3">
               {['Home', 'About Us', 'Services', 'Our Projects'].map((item, i) => (
@@ -59,10 +73,10 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Services */}
-          <div>
+          <motion.div variants={staggerItem}>
             <h3 className="text-gray-900 font-extrabold mb-6 uppercase tracking-wider text-sm">Our Services</h3>
             <ul className="space-y-3">
               {['Gate Fabrication', 'Grills & Railings', 'Structural Truss', 'Pipeline Work', 'Custom Welding'].map((item, i) => (
@@ -73,10 +87,10 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Contact Info */}
-          <div>
+          <motion.div variants={staggerItem}>
             <h3 className="text-gray-900 font-extrabold mb-6 uppercase tracking-wider text-sm">Contact Info</h3>
             <ul className="space-y-4">
               <li className="flex items-start text-sm group">
@@ -92,19 +106,22 @@ const Footer = () => {
                 <span className="text-gray-600 font-medium">snkbuildfabricsolutionssnk@gmail.com</span>
               </li>
             </ul>
-          </div>
+          </motion.div>
 
         </div>
 
-        <div className="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 font-medium">
+        <motion.div
+          className="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 font-medium"
+          variants={staggerItem}
+        >
           <p>© {new Date().getFullYear()} S.N.K Fabrication Works. All rights reserved.</p>
           <div className="flex space-x-4 mt-4 md:mt-0">
             <a href="#" className="hover:text-brand-primary transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-brand-primary transition-colors">Terms of Service</a>
           </div>
-        </div>
-      </div>
-    </footer>
+        </motion.div>
+      </motion.div>
+    </motion.footer>
   );
 };
 

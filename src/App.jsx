@@ -4,6 +4,8 @@ import Navbar from './components/Navbar';
 import TopBar from './components/TopBar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import { ProjectProvider } from './context/ProjectContext';
+import Preloader from './components/Preloader';
 
 // Eagerly load home (above the fold)
 import Home from './pages/Home';
@@ -21,8 +23,10 @@ const PageSpinner = () => (
 
 function App() {
   return (
-    <Router>
-      <ScrollToTop />
+    <ProjectProvider>
+      <Preloader />
+      <Router>
+        <ScrollToTop />
       <div className="flex flex-col min-h-screen">
         <TopBar />
         <Navbar />
@@ -61,6 +65,7 @@ function App() {
         </a>
       </div>
     </Router>
+    </ProjectProvider>
   );
 }
 

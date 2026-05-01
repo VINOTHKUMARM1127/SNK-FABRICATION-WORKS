@@ -6,6 +6,12 @@
   --color-brand-dark: #0B0F19;
   --color-brand-gold: #D4AF37;
   --font-sans: "Outfit", system-ui, -apple-system, sans-serif;
+  --animate-shimmer: shimmer 2.5s infinite linear;
+
+  @keyframes shimmer {
+    0% { transform: translateX(-150%) skewX(-12deg); }
+    100% { transform: translateX(200%) skewX(-12deg); }
+  }
 }
 
 @utility glass {

@@ -1,41 +1,18 @@
 import { useState, useEffect } from 'react';
 import SEO from '../seo/SEO';
 import { X, ZoomIn } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import CTA from '../components/CTA';
+import { useProjects } from '../context/ProjectContext';
 
-import { API_URL } from '../api/config';
-
-const categories = ["All", "MS Fabrication", "CNC Cutting", "Main Gates", "Safety Grills", "SS Railings", "Welding"];
+const categories = ["All", "MS Fabrication", "CNC Cutting", "Main Gates", "Safety Grills", "SS Railings", "Custom Welding"];
 
 const GalleryPage = () => {
-  const [allProjects, setAllProjects] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const { projects: allProjects, loading } = useProjects();
   const [filter, setFilter] = useState("All");
   const [selectedImg, setSelectedImg] = useState(null);
-
-  useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const response = await fetch(`${API_URL}/projects`);
-        const data = await response.json();
-        if (data.success) {
-          const mappedProjects = data.data.map(p => ({
-            id: p._id,
-            title: p.title,
-            category: p.category,
-            img: p.image,
-            desc: p.description
-          }));
-          setAllProjects(mappedProjects);
-        }
-      } catch (err) {
-        console.error('Error fetching gallery projects:', err);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchProjects();
-  }, []);
+  const navigate = useNavigate();
 
   // Scroll Lock Strategy
   useEffect(() => {
@@ -155,38 +132,77 @@ const GalleryPage = () => {
         </div>
       </section>
 
-      {/* Modal */}
-      {selectedImg && (
-        <div className="fixed inset-0 z-[100] p-4 sm:p-6 flex items-center justify-center transition-all duration-300" onClick={() => setSelectedImg(null)}>
-          {/* Backdrop */}
-          <div className="absolute inset-0 bg-gray-900/80 backdrop-blur-md animate-in fade-in duration-300"></div>
-          
-          <div className="relative max-w-5xl w-full h-auto glass bg-white/10 p-2 rounded-[2rem] sm:rounded-[2.5rem] shadow-[0_40px_100px_rgba(0,0,0,0.6)] animate-in fade-in zoom-in duration-300 z-10" onClick={e => e.stopPropagation()}>
-            <button
-              className="absolute top-4 right-4 bg-white/80 hover:bg-brand-primary text-gray-900 hover:text-white p-2.5 rounded-xl backdrop-blur-md transition-all duration-300 z-30 shadow-sm border border-gray-100/50"
-              onClick={() => setSelectedImg(null)}
-              aria-label="Close image preview"
+      {/* Modal with AnimatePresence */}
+      <AnimatePresence>
+        {selectedImg && (
+          <motion.div
+            className="fixed inset-0 z-[200] p-4 sm:p-6 flex items-center justify-center"
+            onClick={() => setSelectedImg(null)}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            {/* Backdrop */}
+            <div className="absolute inset-0 bg-gray-900/60 backdrop-blur-md"></div>
+
+            <motion.div
+              className="glass bg-white/90 border border-white rounded-[2rem] sm:rounded-[3rem] w-full max-w-4xl max-h-[90dvh] overflow-hidden shadow-[0_40px_100px_rgba(0,0,0,0.5)] relative flex flex-col md:flex-row z-10"
+              onClick={(e) => e.stopPropagation()}
+              initial={{ opacity: 0, scale: 0.9, y: 30 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 30 }}
+              transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
-              <X className="w-5 h-5" />
-            </button>
-            <div className="w-full rounded-[2rem] overflow-hidden shadow-inner bg-black">
-              <img
-                src={selectedImg.img}
-                alt={selectedImg.title}
-                loading="lazy"
-                decoding="async"
-                width="900"
-                height="600"
-                className="w-full max-h-[80vh] object-contain"
-              />
-            </div>
-            <div className="text-white text-center mt-6 mb-2 flex flex-col items-center">
-              <span className="text-amber-500 text-[10px] font-black uppercase tracking-[0.2em] mb-2">{selectedImg.category}</span>
-              <h3 className="text-2xl font-black tracking-wide">{selectedImg.title}</h3>
-            </div>
-          </div>
-        </div>
-      )}
+              <button
+                className="absolute top-4 right-4 bg-white/80 hover:bg-brand-primary text-gray-900 hover:text-white p-2.5 rounded-xl backdrop-blur-md transition-all duration-300 z-30 shadow-sm border border-gray-100/50"
+                onClick={() => setSelectedImg(null)}
+                aria-label="Close project detail"
+              >
+                <X className="w-5 h-5" />
+              </button>
+              <div className="grid md:grid-cols-5 p-3 overflow-y-auto md:overflow-visible w-full">
+                <div className="md:col-span-2 h-64 md:h-full rounded-[2rem] overflow-hidden relative shadow-inner shrink-0">
+                  <img
+                    src={selectedImg.img}
+                    alt={selectedImg.title}
+                    loading="lazy"
+                    decoding="async"
+                    width="600"
+                    height="400"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="md:col-span-3 p-6 lg:p-12 flex flex-col justify-center space-y-4 md:space-y-5">
+                  <span className="text-brand-primary text-[11px] font-black uppercase tracking-[0.2em]">
+                    {selectedImg.category}
+                  </span>
+                  <h3 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tighter leading-[1.1]">
+                    {selectedImg.title}
+                  </h3>
+                  <div className="w-16 h-1.5 bg-gradient-to-r from-brand-primary to-amber-500 rounded-full shadow-sm"></div>
+                  <p className="text-gray-600 text-lg leading-relaxed pt-2 font-medium">
+                    {selectedImg.desc}
+                  </p>
+                  <button
+                    onClick={() => {
+                      setSelectedImg(null);
+                      navigate('/#contact-section');
+                      // Add a small delay for navigation to complete before scrolling
+                      setTimeout(() => {
+                        document.getElementById("contact-section")?.scrollIntoView({ behavior: "smooth" });
+                      }, 100);
+                    }}
+                    className="mt-6 bg-gradient-to-r from-brand-primary to-orange-500 text-white px-8 py-4 rounded-2xl font-black uppercase tracking-widest text-xs hover:to-orange-400 transition-all shadow-[0_10px_20px_rgba(230,81,0,0.2)] hover:shadow-[0_15px_30px_rgba(230,81,0,0.3)] hover:-translate-y-0.5 w-max"
+                  >
+                    Request Similar Look
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <CTA />
     </>

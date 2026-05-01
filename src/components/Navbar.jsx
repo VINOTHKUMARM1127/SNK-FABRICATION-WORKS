@@ -67,7 +67,7 @@ const Navbar = () => {
             </Link>
           ))}
           <button
-            onClick={() => document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => window.open("https://wa.me/917204097229?text=I%20need%20a%20quote%20for%20a%20fabrication%20project." , '_blank' )}
             className="px-8 py-3 rounded-full font-extrabold text-xs uppercase tracking-widest transition-all duration-300 active:scale-95 shadow-[0_8px_20px_rgba(230,81,0,0.25)] bg-gradient-to-r from-brand-primary to-orange-500 text-white hover:shadow-[0_15px_30px_rgba(230,81,0,0.4)] hover:-translate-y-1"
           >
             Get Quote
@@ -98,10 +98,7 @@ const Navbar = () => {
               </Link>
             ))}
             <button
-              onClick={() => {
-                setIsOpen(false);
-                document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' })
-              }}
+              onClick={() => window.open("https://wa.me/917204097229?text=I%20need%20a%20quote%20for%20a%20fabrication%20project." , '_blank' )}
               className="w-full bg-gradient-to-r from-brand-primary to-orange-500 text-white px-8 py-4 rounded-xl font-black text-xs uppercase tracking-widest shadow-[0_10px_20px_rgba(230,81,0,0.2)]"
             >
               Get Quote

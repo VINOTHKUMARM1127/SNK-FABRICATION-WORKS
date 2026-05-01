@@ -1,4 +1,6 @@
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { motion } from "framer-motion";
+import { fadeUp, fadeLeft, fadeRight, staggerContainer, staggerItem, viewportOnce } from "../lib/animations";
 
 const ContactSection = () => {
   return (
@@ -11,7 +13,13 @@ const ContactSection = () => {
       <div className="absolute top-0 right-0 w-[200px] sm:w-[400px] h-[200px] sm:h-[400px] bg-blue-500/5 rounded-full blur-[60px] sm:blur-[100px] translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
-        <div className="text-center mb-10 sm:mb-16 animate-fade-in-up">
+        <motion.div
+          className="text-center mb-10 sm:mb-16"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
           <div className="inline-flex items-center px-4 py-2 rounded-full glass bg-white/60 mb-6 font-bold shadow-sm border border-white">
             <span className="w-2.5 h-2.5 rounded-full bg-brand-primary mr-3 animate-ping"></span>
             <span className="text-brand-primary text-[10px] sm:text-xs uppercase tracking-[0.2em]">
@@ -26,11 +34,17 @@ const ContactSection = () => {
             Stop by for a free consultation or call us to schedule a site visit
             anywhere in Bangalore.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 lg:items-stretch items-start">
-          {/* Contact Details Column (Left) */}
-          <div className="lg:col-span-5 space-y-4 sm:space-y-5 lg:space-y-3 animate-fade-in-up flex flex-col">
+          {/* Contact Details Column (Left — fade from left) */}
+          <motion.div
+            className="lg:col-span-5 space-y-4 sm:space-y-5 lg:space-y-3 flex flex-col"
+            variants={fadeLeft}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+          >
             {[
               {
                 icon: MapPin,
@@ -57,9 +71,14 @@ const ContactSection = () => {
                 sub: "Open for Consultations",
               },
             ].map((item, idx) => (
-              <div
+              <motion.div
                 key={idx}
-                className="glass bg-white/70 border-t border-l border-white/80 p-4 sm:p-5 lg:p-4 xl:p-5 rounded-[2rem] shadow-[0_10px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_50px_rgba(230,81,0,0.12)] transition-all duration-500 group flex flex-col xs:flex-row items-start xs:items-center hover:-translate-y-1 flex-grow"
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={viewportOnce}
+                transition={{ duration: 0.5, delay: idx * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+                whileHover={{ y: -4, transition: { duration: 0.25 } }}
+                className="glass bg-white/70 border-t border-l border-white/80 p-4 sm:p-5 lg:p-4 xl:p-5 rounded-[2rem] shadow-[0_10px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_50px_rgba(230,81,0,0.12)] transition-shadow duration-500 group flex flex-col xs:flex-row items-start xs:items-center flex-grow"
               >
                 <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-11 lg:h-11 xl:w-12 xl:h-12 rounded-2xl lg:rounded-xl bg-gradient-to-br from-brand-primary/10 to-orange-100 flex items-center justify-center shrink-0 border border-white group-hover:from-brand-primary group-hover:to-orange-500 transition-all duration-700 mr-0 xs:mr-5 lg:mr-4 shadow-sm group-hover:shadow-[0_10px_20px_rgba(230,81,0,0.3)] mb-4 xs:mb-0">
                   <item.icon className="w-5 h-5 sm:w-6 sm:h-6 lg:w-5 lg:h-5 text-brand-primary group-hover:text-white transition-colors duration-500" />
@@ -77,25 +96,30 @@ const ContactSection = () => {
                     </p>
                   )}
                 </div>
-              </div>
+              </motion.div>
             ))}
 
             <div className="pt-4 mt-auto">
-              <a
+              <motion.a
                 href="https://wa.me/917204097229"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center justify-center w-full bg-gradient-to-r from-brand-primary to-orange-500 text-white py-5 rounded-[1.5rem] font-black uppercase tracking-widest text-xs sm:text-sm hover:brightness-110 transition-all duration-500 shadow-[0_15px_30px_rgba(230,81,0,0.25)] hover:shadow-[0_20px_40px_rgba(230,81,0,0.45)] hover:-translate-y-1.5 active:scale-95"
+                className="flex items-center justify-center w-full bg-gradient-to-r from-brand-primary to-orange-500 text-white py-5 rounded-[1.5rem] font-black uppercase tracking-widest text-xs sm:text-sm hover:brightness-110 transition-all duration-500 shadow-[0_15px_30px_rgba(230,81,0,0.25)] hover:shadow-[0_20px_40px_rgba(230,81,0,0.45)] active:scale-95"
+                whileHover={{ y: -6 }}
+                whileTap={{ scale: 0.96 }}
               >
                 Instant WhatsApp Support
-              </a>
+              </motion.a>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Real Map Integration (Right) */}
-          <div
-            className="lg:col-span-7 aspect-[4/3] sm:aspect-video lg:aspect-auto w-full glass bg-white/20 border-t border-l border-white/60 p-2 sm:p-3 rounded-[2rem] sm:rounded-[3rem] shadow-[0_30px_60px_rgba(0,0,0,0.12)] relative group animate-fade-in-up"
-            style={{ animationDelay: "200ms" }}
+          {/* Real Map Integration (Right — fade from right) */}
+          <motion.div
+            className="lg:col-span-7 aspect-[4/3] sm:aspect-video lg:aspect-auto w-full glass bg-white/20 border-t border-l border-white/60 p-2 sm:p-3 rounded-[2rem] sm:rounded-[3rem] shadow-[0_30px_60px_rgba(0,0,0,0.12)] relative group"
+            variants={fadeRight}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
           >
             <div className="w-full h-full rounded-[1.5rem] sm:rounded-[2.5rem] overflow-hidden relative shadow-inner bg-gray-100 min-h-[300px]">
               <iframe
@@ -115,7 +139,7 @@ const ContactSection = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
