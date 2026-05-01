@@ -26,7 +26,7 @@ const Projects = () => {
   return (
     <>
       <section className="py-24 bg-brand-light relative" id="projects-section">
-        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-brand-primary/5 rounded-full blur-[100px] pointer-events-none -translate-x-1/2 -translate-y-1/2 animate-pulse" />
+        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-brand-primary/5 rounded-full blur-[100px] pointer-events-none -translate-x-1/2 -translate-y-1/2" />
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <motion.div
             className="text-center mb-16"
@@ -36,7 +36,7 @@ const Projects = () => {
             viewport={viewportOnce}
           >
             <div className="inline-flex items-center space-x-2 glass bg-white/70 border border-white rounded-full px-5 py-2 mb-6 shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-brand-primary animate-ping"></span>
+              <span className="w-2 h-2 rounded-full bg-brand-primary animate-pulse"></span>
               <span className="text-brand-primary font-bold tracking-widest text-[10px] uppercase">
                 Portfolio
               </span>

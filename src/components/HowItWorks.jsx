@@ -26,7 +26,7 @@ const stepItem = {
 const HowItWorks = () => {
   return (
     <section className="py-24 bg-transparent relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-primary/5 rounded-full blur-[100px] -z-10 translate-x-1/3 -translate-y-1/3 animate-pulse"></div>
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-primary/5 rounded-full blur-[100px] -z-10 translate-x-1/3 -translate-y-1/3"></div>
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-amber-400/5 rounded-full blur-[100px] -z-10 -translate-x-1/3 translate-y-1/3"></div>
 
       <div className="max-w-7xl mx-auto px-6 relative">
@@ -38,7 +38,7 @@ const HowItWorks = () => {
           viewport={viewportOnce}
         >
           <div className="inline-flex items-center space-x-2 glass bg-white/70 border border-white rounded-full px-5 py-2 mb-6 shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-brand-primary animate-ping"></span>
+            <span className="w-2 h-2 rounded-full bg-brand-primary animate-pulse"></span>
             <span className="text-brand-primary font-black tracking-widest text-[10px] uppercase">Process</span>
           </div>
           <h3 className="text-3xl md:text-5xl lg:text-7xl font-black text-gray-900 tracking-tighter leading-[1.1]">

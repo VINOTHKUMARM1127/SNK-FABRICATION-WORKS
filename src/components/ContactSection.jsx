@@ -9,7 +9,7 @@ const ContactSection = () => {
       id="contact-section"
     >
       {/* Background Decorative Blurs */}
-      <div className="absolute top-1/2 left-0 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-brand-primary/10 rounded-full blur-[80px] sm:blur-[150px] -translate-y-1/2 -translate-x-1/2 animate-pulse pointer-events-none"></div>
+      <div className="absolute top-1/2 left-0 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-brand-primary/10 rounded-full blur-[80px] sm:blur-[150px] -translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
       <div className="absolute top-0 right-0 w-[200px] sm:w-[400px] h-[200px] sm:h-[400px] bg-blue-500/5 rounded-full blur-[60px] sm:blur-[100px] translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
@@ -21,7 +21,7 @@ const ContactSection = () => {
           viewport={viewportOnce}
         >
           <div className="inline-flex items-center px-4 py-2 rounded-full glass bg-white/60 mb-6 font-bold shadow-sm border border-white">
-            <span className="w-2.5 h-2.5 rounded-full bg-brand-primary mr-3 animate-ping"></span>
+            <span className="w-2.5 h-2.5 rounded-full bg-brand-primary mr-3 animate-pulse"></span>
             <span className="text-brand-primary text-[10px] sm:text-xs uppercase tracking-[0.2em]">
               Connect with our team
             </span>

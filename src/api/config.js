@@ -8,7 +8,7 @@ export const fetchSanityProjects = async (limit = null) => {
     _id,
     title,
     category,
-    "img": image.asset->url + "?w=800&auto=format&fit=max&q=80",
+    "img": image.asset->url + "?w=600&auto=format&fit=max&q=70",
     "desc": description
   }`);
   

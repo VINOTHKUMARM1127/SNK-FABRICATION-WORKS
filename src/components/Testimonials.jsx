@@ -59,7 +59,7 @@ const Testimonials = () => {
           whileInView="visible"
           viewport={viewportOnce}
         >
-          <span className="w-2.5 h-2.5 rounded-full bg-brand-primary animate-ping"></span>
+          <span className="w-2.5 h-2.5 rounded-full bg-brand-primary animate-pulse"></span>
           <span className="text-brand-primary text-[10px] uppercase tracking-[0.2em] font-black">Client Stories</span>
         </motion.div>
 

@@ -39,33 +39,31 @@ const Preloader = () => {
     <AnimatePresence>
       {show && (
         <motion.div
-          className="fixed inset-0 z-[9999] flex items-center justify-center bg-gradient-to-br from-[#FFEDD5] via-[#F8FAFC] to-[#E0F2FE] animate-gradient-shift"
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-gradient-to-br from-[#FFEDD5] via-[#F8FAFC] to-[#E0F2FE] will-change-transform"
           initial={{ y: 0 }}
           exit={{ 
             y: '-100vh',
             transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] } 
           }}
         >
-          {/* Subtle minimal background glow */}
-          <motion.div 
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-brand-primary/5 rounded-full blur-[80px]"
-            animate={{ scale: [1, 1.05, 1], opacity: [0.3, 0.6, 0.3] }}
-            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-          />
+          {/* Subtle minimal background glow — static, no animation to reduce GPU load */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-brand-primary/5 rounded-full blur-[80px]" />
 
           <motion.div
-            className="relative z-10 flex flex-col items-center justify-center w-full px-4"
-            initial={{ opacity: 0, scale: 0.9, y: 20, filter: 'blur(8px)' }}
-            animate={{ opacity: 1, scale: 1, y: 0, filter: 'blur(0px)' }}
-            exit={{ opacity: 0, scale: 0.95, filter: 'blur(4px)', transition: { duration: 0.4 } }}
-            transition={{ duration: 1.2, ease: 'easeInOut' }}
+            className="relative z-10 flex flex-col items-center justify-center w-full px-4 will-change-[transform,opacity]"
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, transition: { duration: 0.3 } }}
+            transition={{ duration: 1, ease: 'easeInOut' }}
           >
-            {/* Logo Container - 4:3 Ratio, width 60% mobile, max 300px */}
+            {/* Logo Container - 4:3 Ratio, responsive sizing */}
             <div className="w-[70%] sm:w-[50%] max-w-[350px] aspect-[4/3] flex items-center justify-center relative">
               <img 
                 src={snkLogo} 
                 alt="SNK Fabrication Works Logo" 
                 className="w-full h-full object-contain"
+                width="350"
+                height="263"
                 style={{ filter: 'drop-shadow(0px 10px 15px rgba(230,81,0,0.1))' }}
               />
             </div>

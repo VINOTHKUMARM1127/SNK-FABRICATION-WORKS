@@ -9,9 +9,9 @@ const Hero = () => {
       className="relative h-screen h-[100dvh] min-h-[600px] sm:min-h-[700px] flex items-center justify-center overflow-hidden"
       aria-label="Hero Section - S.N.K Fabrication Works"
     >
-      {/* Background with subtle zoom animation */}
+      {/* Background with subtle zoom animation — GPU-only transform */}
       <motion.div
-        className="absolute inset-0 w-full h-full"
+        className="absolute inset-0 w-full h-full will-change-transform"
         variants={heroZoom}
         initial="initial"
         animate="animate"
@@ -22,7 +22,7 @@ const Hero = () => {
           role="presentation"
           fetchPriority="high"
           loading="eager"
-          decoding="sync"
+          decoding="async"
           width="1200"
           height="800"
           style={{
@@ -56,7 +56,7 @@ const Hero = () => {
           className="inline-flex items-center space-x-3 mb-6 sm:mb-8 bg-white/10 rounded-full px-5 py-2 border border-white/20"
         >
           <div
-            className="w-2 h-2 rounded-full bg-brand-primary animate-ping"
+            className="w-2 h-2 rounded-full bg-brand-primary animate-pulse"
             aria-hidden="true"
           />
           <span className="text-white font-extrabold uppercase tracking-[0.2em] text-[10px]">

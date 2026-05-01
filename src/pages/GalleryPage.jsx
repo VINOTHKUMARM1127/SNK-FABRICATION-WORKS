@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import SEO from '../seo/SEO';
 import { X, ZoomIn } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -12,6 +12,8 @@ const GalleryPage = () => {
   const { projects: allProjects, loading } = useProjects();
   const [filter, setFilter] = useState("All");
   const [selectedImg, setSelectedImg] = useState(null);
+  const [visibleCount, setVisibleCount] = useState(6);
+  const observerRef = useRef(null);
   const navigate = useNavigate();
 
   // Scroll Lock Strategy
@@ -26,7 +28,35 @@ const GalleryPage = () => {
     };
   }, [selectedImg]);
 
+  // Reset visible count when filter changes
+  useEffect(() => {
+    setVisibleCount(6);
+  }, [filter]);
+
   const filteredProjects = filter === "All" ? allProjects : allProjects.filter(p => p.category === filter);
+  const displayedProjects = filteredProjects ? filteredProjects.slice(0, visibleCount) : [];
+
+  // Infinite Scroll Observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && visibleCount < filteredProjects.length) {
+          setVisibleCount((prev) => prev + 6);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (observerRef.current) {
+      observer.observe(observerRef.current);
+    }
+
+    return () => {
+      if (observerRef.current) {
+        observer.unobserve(observerRef.current);
+      }
+    };
+  }, [visibleCount, filteredProjects.length]);
 
   return (
     <>
@@ -96,7 +126,7 @@ const GalleryPage = () => {
                 <div className="w-12 h-12 border-4 border-brand-primary border-t-transparent rounded-full animate-spin mb-4" />
                 <p className="font-bold tracking-widest text-[10px] uppercase">Loading Gallery...</p>
               </div>
-            ) : filteredProjects.map((item, i) => (
+            ) : displayedProjects.map((item, i) => (
               <div
                 key={item.id}
                 className="group relative rounded-[2.5rem] overflow-hidden cursor-pointer shadow-[0_10px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_50px_rgba(230,81,0,0.15)] transition-all duration-500 border border-white glass hover:-translate-y-2 p-2 aspect-[4/3] lg:aspect-square animate-fade-in-up"
@@ -128,6 +158,14 @@ const GalleryPage = () => {
               </div>
             ))}
           </div>
+
+          {/* Infinite Scroll Trigger */}
+          {visibleCount < filteredProjects?.length && (
+            <div ref={observerRef} className="w-full h-24 flex flex-col items-center justify-center mt-12">
+              <div className="w-8 h-8 border-4 border-brand-primary border-t-transparent rounded-full animate-spin mb-3 opacity-60" />
+              <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest">Loading More Projects...</p>
+            </div>
+          )}
 
         </div>
       </section>

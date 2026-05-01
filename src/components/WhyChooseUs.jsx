@@ -29,7 +29,7 @@ const WhyChooseUs = () => {
   return (
     <section className="py-16 lg:py-24 bg-transparent relative overflow-hidden">
       {/* Bright Decorative Element */}
-      <div className="absolute top-0 right-0 w-[600px] h-full bg-gradient-to-bl from-brand-primary/10 via-amber-400/5 target-to-transparent opacity-80 pointer-events-none animate-pulse"></div>
+      <div className="absolute top-0 right-0 w-[600px] h-full bg-gradient-to-bl from-brand-primary/10 via-amber-400/5 target-to-transparent opacity-80 pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -43,7 +43,7 @@ const WhyChooseUs = () => {
             viewport={viewportOnce}
           >
             <div className="inline-flex items-center space-x-2 glass bg-white/70 border border-white rounded-full px-5 py-2 mb-6 shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-brand-primary animate-ping"></span>
+              <span className="w-2 h-2 rounded-full bg-brand-primary animate-pulse"></span>
               <span className="text-brand-primary font-black tracking-widest text-[10px] uppercase">Why S.N.K Fabrication</span>
             </div>
 

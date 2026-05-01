@@ -26,7 +26,7 @@ const CTA = () => {
               className="inline-flex items-center px-4 py-2 rounded-full glass bg-white/60 mb-6 border border-brand-primary/20"
               variants={scaleIn}
             >
-              <span className="w-2.5 h-2.5 rounded-full bg-brand-primary mr-3 animate-ping"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-brand-primary mr-3 animate-pulse"></span>
               <span className="text-brand-primary text-[10px] font-black uppercase tracking-widest">Limited slots for site visits</span>
             </motion.div>
 

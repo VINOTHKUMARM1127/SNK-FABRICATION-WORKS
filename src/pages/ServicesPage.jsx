@@ -71,7 +71,7 @@ const ServicesPage = () => {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-20 text-center animate-fade-in-up">
           <div className="inline-flex items-center space-x-2 glass bg-white/70 border border-white rounded-full px-5 py-2 mb-6 shadow-sm">
-            <span className="w-2.5 h-2.5 rounded-full bg-brand-primary animate-ping"></span>
+            <span className="w-2.5 h-2.5 rounded-full bg-brand-primary animate-pulse"></span>
             <span className="text-brand-primary text-[10px] uppercase tracking-[0.2em] font-black">Expertise & Quality</span>
           </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-6 tracking-tighter leading-[1.1] max-w-4xl mx-auto">

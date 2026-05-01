@@ -83,7 +83,7 @@ const ServiceCard = ({ service, index }) => {
             scale: isHovered ? 1.03 : 1,
           }}
           transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-          className="will-change-transform"
+          className="will-change-transform transform-gpu"
         >
           <div className="h-64 overflow-hidden relative p-3">
             <div className="w-full h-full rounded-[1.8rem] overflow-hidden relative shadow-inner">
@@ -114,7 +114,7 @@ const ServiceCard = ({ service, index }) => {
 const Services = () => {
   return (
     <section className="py-24 bg-transparent relative overflow-hidden" id="services-section">
-      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-brand-primary/5 rounded-full blur-[100px] pointer-events-none -translate-x-1/2 -translate-y-1/2 animate-pulse" />
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-brand-primary/5 rounded-full blur-[100px] pointer-events-none -translate-x-1/2 -translate-y-1/2" />
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-amber-400/5 rounded-full blur-[100px] pointer-events-none translate-x-1/4 translate-y-1/4" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -127,7 +127,7 @@ const Services = () => {
         >
           <div className="max-w-2xl">
             <h2 className="text-brand-primary font-black tracking-widest text-[10px] uppercase mb-4 inline-flex items-center glass bg-white/70 px-5 py-2 rounded-full border border-white shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-brand-primary mr-3 animate-ping"></span>
+              <span className="w-2 h-2 rounded-full bg-brand-primary mr-3 animate-pulse"></span>
               Our Expertise
             </h2>
             <h3 className="text-4xl md:text-5xl lg:text-7xl font-black text-gray-900 leading-[1.1] tracking-tighter">
