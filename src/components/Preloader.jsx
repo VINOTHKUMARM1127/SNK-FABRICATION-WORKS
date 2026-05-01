@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useProjects } from '../context/ProjectContext';
+import snkLogo from '../assets/intro.png';
 
 const Preloader = () => {
   const { loading } = useProjects();
@@ -38,48 +39,34 @@ const Preloader = () => {
     <AnimatePresence>
       {show && (
         <motion.div
-          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-brand-light"
-          initial={{ opacity: 1 }}
-          exit={{ opacity: 0, transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] } }}
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-gradient-to-br from-[#FFEDD5] via-[#F8FAFC] to-[#E0F2FE] animate-gradient-shift"
+          initial={{ y: 0 }}
+          exit={{ 
+            y: '-100vh',
+            transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] } 
+          }}
         >
-          {/* Background Glow */}
-          <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-brand-primary/5 to-amber-500/5 animate-pulse" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-brand-primary/20 rounded-full blur-[80px]" />
-          
+          {/* Subtle minimal background glow */}
+          <motion.div 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-brand-primary/5 rounded-full blur-[80px]"
+            animate={{ scale: [1, 1.05, 1], opacity: [0.3, 0.6, 0.3] }}
+            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+          />
+
           <motion.div
-            className="relative z-10 flex flex-col items-center"
-            initial={{ opacity: 0, scale: 0.85 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="relative z-10 flex flex-col items-center justify-center w-full px-4"
+            initial={{ opacity: 0, scale: 0.9, y: 20, filter: 'blur(8px)' }}
+            animate={{ opacity: 1, scale: 1, y: 0, filter: 'blur(0px)' }}
+            exit={{ opacity: 0, scale: 0.95, filter: 'blur(4px)', transition: { duration: 0.4 } }}
+            transition={{ duration: 1.2, ease: 'easeInOut' }}
           >
-            {/* Logo Box with Glow */}
-            <motion.div 
-              className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-brand-primary to-orange-500 rounded-[1.5rem] flex items-center justify-center text-white font-black text-3xl sm:text-4xl shadow-xl mb-6 relative overflow-hidden"
-              animate={{ 
-                boxShadow: ['0 0 20px rgba(230,81,0,0.3)', '0 0 50px rgba(230,81,0,0.6)', '0 0 20px rgba(230,81,0,0.3)']
-              }}
-              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            >
-              <div className="absolute inset-0 bg-white/20 w-1/2 -skew-x-12 translate-x-[-150%] animate-[shimmer_2s_infinite]" />
-              SNK
-            </motion.div>
-            
-            {/* Company Name */}
-            <div className="text-center overflow-hidden">
-              <motion.h1 
-                className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tighter"
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
-              >
-                Fabrication <span className="text-brand-primary">Works</span>
-              </motion.h1>
-              
-              <motion.div 
-                className="h-1 bg-gradient-to-r from-transparent via-brand-primary to-transparent mt-4 rounded-full mx-auto"
-                initial={{ width: 0, opacity: 0 }}
-                animate={{ width: '100%', opacity: 1 }}
-                transition={{ duration: 1.2, delay: 0.4, ease: 'easeInOut' }}
+            {/* Logo Container - 4:3 Ratio, width 60% mobile, max 300px */}
+            <div className="w-[70%] sm:w-[50%] max-w-[350px] aspect-[4/3] flex items-center justify-center relative">
+              <img 
+                src={snkLogo} 
+                alt="SNK Fabrication Works Logo" 
+                className="w-full h-full object-contain"
+                style={{ filter: 'drop-shadow(0px 10px 15px rgba(230,81,0,0.1))' }}
               />
             </div>
           </motion.div>
