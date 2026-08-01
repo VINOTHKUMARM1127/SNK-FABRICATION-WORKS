@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <section
       className="relative h-screen h-[100dvh] min-h-[600px] sm:min-h-[700px] flex items-center justify-center overflow-hidden"
-      aria-label="Hero Section - S.N.K Fabrication Works"
+      aria-label="Hero Section - SNK Build Fabric Solutions"
     >
       {/* Background with subtle zoom animation — GPU-only transform */}
       <motion.div

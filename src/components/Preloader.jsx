@@ -60,7 +60,7 @@ const Preloader = () => {
             <div className="w-[70%] sm:w-[50%] max-w-[350px] aspect-[4/3] flex items-center justify-center relative">
               <img 
                 src={snkLogo} 
-                alt="SNK Fabrication Works Logo" 
+                alt="SNK Build Fabric Solutions Logo" 
                 className="w-full h-full object-contain"
                 width="350"
                 height="263"

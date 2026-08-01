@@ -44,7 +44,7 @@ const WhyChooseUs = () => {
           >
             <div className="inline-flex items-center space-x-2 glass bg-white/70 border border-white rounded-full px-5 py-2 mb-6 shadow-sm">
               <span className="w-2 h-2 rounded-full bg-brand-primary animate-pulse"></span>
-              <span className="text-brand-primary font-black tracking-widest text-[10px] uppercase">Why S.N.K Fabrication</span>
+              <span className="text-brand-primary font-black tracking-widest text-[10px] uppercase">Why SNK Build Fabric Solutions</span>
             </div>
 
             <h3 className="text-4xl lg:text-5xl lg:text-[3.5rem] font-black mb-6 leading-[1.1] text-gray-900 tracking-tighter">
@@ -54,7 +54,7 @@ const WhyChooseUs = () => {
 
             <div className="pl-6 border-l-4 border-brand-primary mb-10 relative">
               <p className="text-gray-600 text-lg lg:text-xl leading-relaxed font-medium tracking-wide">
-                Founded by <strong className="text-gray-900 font-extrabold">Naveenkumar Sivashankaran</strong>, S.N.K Fabrication Works combines 7+ years of specialized experience with a passionate focus on structural integrity. From heavy-duty commercial pipelines to premium residential custom works, our core team guarantees flawless, verified execution.
+                Founded by <strong className="text-gray-900 font-extrabold">Naveenkumar Sivashankaran</strong>, SNK Build Fabric Solutions combines 7+ years of specialized experience with a passionate focus on structural integrity. From heavy-duty commercial pipelines to premium residential custom works, our core team guarantees flawless, verified execution.
               </p>
             </div>
 

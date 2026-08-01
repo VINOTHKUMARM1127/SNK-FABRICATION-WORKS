@@ -7,7 +7,7 @@ const About = () => {
     <>
       <SEO
         title="About Us"
-        description="Learn about S.N.K Fabrication Works. 7+ years of experience in delivering premium fabrication projects in Bangalore."
+        description="Learn about SNK Build Fabric Solutions. 7+ years of experience in delivering premium fabrication projects in Bangalore."
       />
 
       <div className="bg-transparent pt-40 pb-16 relative overflow-hidden">
@@ -43,7 +43,7 @@ const About = () => {
                 </h3>
               </div>
               <p className="text-gray-600 text-[17px] leading-relaxed font-medium">
-                Founded with a vision to provide structural solutions that don't just stand the test of time, but also look magnificent. Over the past 7 years, S.N.K Fabrication Works has grown from a small local workshop to one of Bangalore's most trusted premium fabrication partners.
+                Founded with a vision to provide structural solutions that don't just stand the test of time, but also look magnificent. Over the past 7 years, SNK Build Fabric Solutions has grown from a small local workshop to one of Bangalore's most trusted premium fabrication partners.
               </p>
               <p className="text-gray-600 text-[17px] leading-relaxed font-medium">
                 We believe that every gate, every grill, and every structural truss is a testament to our quality. That's why we use only high-grade materials combined with advanced welding techniques.

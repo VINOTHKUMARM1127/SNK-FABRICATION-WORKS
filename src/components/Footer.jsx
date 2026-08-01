@@ -41,21 +41,21 @@ const Footer = () => {
                 SNK
               </div>
               <div>
-                <h2 className="text-xl font-bold text-gray-900 leading-tight group-hover:text-brand-primary transition-colors duration-300">Fabrication</h2>
-                <p className="text-xs text-brand-primary font-semibold tracking-wider uppercase">Works</p>
+                <h2 className="text-xl font-bold text-gray-900 leading-tight group-hover:text-brand-primary transition-colors duration-300">Build Fabric</h2>
+                <p className="text-xs text-brand-primary font-semibold tracking-wider uppercase">Solutions</p>
               </div>
             </Link>
             <p className="text-gray-600 text-sm leading-relaxed max-w-xs">
               Premium quality fabrication works in Bangalore. Specializing in gates, grills, railings, and structural steel works for 7+ years.
             </p>
             <div className="flex space-x-4">
-              <a href="#" aria-label="Follow S.N.K Fabrication on Facebook" className="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:text-white hover:bg-blue-600 hover:border-transparent transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-lg">
+              <a href="#" aria-label="Follow SNK Build Fabric Solutions on Facebook" className="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:text-white hover:bg-blue-600 hover:border-transparent transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-lg">
                 <FacebookIcon />
               </a>
-              <a href="#" aria-label="Follow S.N.K Fabrication on Instagram" className="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:text-white hover:bg-pink-600 hover:border-transparent transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-lg">
+              <a href="#" aria-label="Follow SNK Build Fabric Solutions on Instagram" className="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:text-white hover:bg-pink-600 hover:border-transparent transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-lg">
                 <InstagramIcon />
               </a>
-              <a href="#" aria-label="Follow S.N.K Fabrication on Twitter" className="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:text-white hover:bg-sky-500 hover:border-transparent transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-lg">
+              <a href="#" aria-label="Follow SNK Build Fabric Solutions on Twitter" className="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:text-white hover:bg-sky-500 hover:border-transparent transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-lg">
                 <TwitterIcon />
               </a>
             </div>
@@ -114,7 +114,7 @@ const Footer = () => {
           className="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 font-medium"
           variants={staggerItem}
         >
-          <p>© {new Date().getFullYear()} S.N.K Fabrication Works. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} SNK Build Fabric Solutions. All rights reserved.</p>
           <div className="flex space-x-4 mt-4 md:mt-0">
             <a href="#" className="hover:text-brand-primary transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-brand-primary transition-colors">Terms of Service</a>

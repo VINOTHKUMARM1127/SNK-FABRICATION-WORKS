@@ -49,8 +49,8 @@ const Navbar = () => {
             SNK
           </div>
           <div>
-            <h1 className={`text-2xl font-black leading-none bg-clip-text text-transparent bg-gradient-to-r transition-all group-hover:to-brand-primary ${scrolled || isOpen || location.pathname !== '/' ? 'from-gray-900 to-gray-600' : 'from-white to-gray-300'}`}>Fabrication</h1>
-            <p className="text-[10px] font-extrabold tracking-[0.3em] uppercase text-brand-primary mt-1">Works</p>
+            <h1 className={`text-2xl font-black leading-none bg-clip-text text-transparent bg-gradient-to-r transition-all group-hover:to-brand-primary ${scrolled || isOpen || location.pathname !== '/' ? 'from-gray-900 to-gray-600' : 'from-white to-gray-300'}`}>Build Fabric</h1>
+            <p className="text-[10px] font-extrabold tracking-[0.3em] uppercase text-brand-primary mt-1">Solutions</p>
           </div>
         </Link>
 

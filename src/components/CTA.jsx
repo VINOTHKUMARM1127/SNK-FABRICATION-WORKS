@@ -41,7 +41,7 @@ const CTA = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <motion.a
                 href="tel:+917204097229"
-                aria-label="Call S.N.K Fabrication Works for a quote"
+                aria-label="Call SNK Build Fabric Solutions for a quote"
                 className="group/btn relative inline-flex items-center justify-center bg-gradient-to-r from-brand-primary to-orange-500 text-white px-8 py-4 rounded-xl font-black text-xs uppercase tracking-widest transition-all hover:to-orange-400 shadow-[0_8px_20px_rgba(230,81,0,0.3)] hover:shadow-[0_15px_30px_rgba(230,81,0,0.4)] active:scale-95 w-full sm:w-auto"
                 whileHover={{ y: -4, scale: 1.02 }}
                 whileTap={{ scale: 0.97 }}
@@ -53,7 +53,7 @@ const CTA = () => {
               <motion.a
                 href="https://wa.me/917204097229"
                 target="_blank" rel="noreferrer"
-                aria-label="Chat with S.N.K Fabrication Works on WhatsApp"
+                aria-label="Chat with SNK Build Fabric Solutions on WhatsApp"
                 className="group/btn relative inline-flex items-center justify-center glass bg-white/80 border-t border-l border-white text-gray-900 px-8 py-4 rounded-xl font-black text-xs uppercase tracking-widest transition-all hover:bg-white hover:text-brand-primary shadow-lg active:scale-95 w-full sm:w-auto"
                 whileHover={{ y: -4, scale: 1.02 }}
                 whileTap={{ scale: 0.97 }}

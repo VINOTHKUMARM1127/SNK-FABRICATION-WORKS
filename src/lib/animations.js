@@ -1,6 +1,6 @@
 /**
  * Global Framer Motion Animation Variants
- * Premium, reusable animation system for SNK Fabrication Works
+ * Premium, reusable animation system for SNK Build Fabric Solutions
  */
 
 // ─── Responsive helpers ───────────────────────────────────────────

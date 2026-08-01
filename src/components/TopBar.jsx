@@ -20,7 +20,7 @@ const TopBar = () => {
     <div className={`backdrop-blur-md border-b text-[10px] uppercase tracking-widest h-8 hidden md:flex items-center fixed top-0 w-full z-50 transition-all duration-500 ease-in-out ${isVisible ? 'translate-y-0' : '-translate-y-full'} ${isHome ? 'bg-gray-900/40 border-white/10 text-white/90 shadow-2xl' : 'bg-white/80 border-gray-200 text-gray-700 shadow-sm'}`}>
       <div className="max-w-7xl mx-auto w-full px-6 flex justify-between items-center">
         <div className="flex items-center space-x-10">
-          <a href="tel:+917204097229" aria-label="Call S.N.K Fabrication Works" className={`flex items-center hover:text-brand-primary transition-all duration-300 font-black group ${!isHome ? 'hover:text-brand-primary' : ''}`}>
+          <a href="tel:+917204097229" aria-label="Call SNK Build Fabric Solutions" className={`flex items-center hover:text-brand-primary transition-all duration-300 font-black group ${!isHome ? 'hover:text-brand-primary' : ''}`}>
             <Phone className={`w-3.5 h-3.5 mr-2 text-brand-primary group-hover:scale-125 transition-transform`} aria-hidden="true" />
             <span>+91 72040 97229</span>
           </a>

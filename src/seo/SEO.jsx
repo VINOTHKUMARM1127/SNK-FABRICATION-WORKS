@@ -2,10 +2,10 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
 const SEO = ({ title, description, keywords, image }) => {
-  const siteName = "S.N.K Fabrication Works";
-  const defaultTitle = "S.N.K Fabrication Works | Premium Industrial & Residential Fabrication in Bangalore";
+  const siteName = "SNK Build Fabric Solutions";
+  const defaultTitle = "SNK Build Fabric Solutions | Premium Industrial & Residential Fabrication in Bangalore";
   const defaultDescription = "Bangalore's most trusted fabrication partner with 7+ years of expertise. Specializing in Designer Gates, SS Railings, Industrial Truss Works, CNC Cutting, and custom metal solutions. Quality craftsmanship and on-time delivery guaranteed.";
-  const defaultKeywords = "fabrication works Bangalore, MS fabrication Bangalore, designer gates Bangalore, SS railings Bangalore, industrial truss work Bangalore, CNC laser cutting service, premium welding services, S.N.K Fabrication, Naveenkumar Sivashankaran, welding contractors Bangalore, metal fabrication workshop Bangalore";
+  const defaultKeywords = "fabrication works Bangalore, MS fabrication Bangalore, designer gates Bangalore, SS railings Bangalore, industrial truss work Bangalore, CNC laser cutting service, premium welding services, SNK Build Fabric Solutions, Naveenkumar Sivashankaran, welding contractors Bangalore, metal fabrication workshop Bangalore";
   const ogImage = image || "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=1200";
   const canonicalUrl = typeof window !== 'undefined' ? window.location.href : 'https://snk-fabrication-works.vercel.app/';
 
@@ -13,7 +13,7 @@ const SEO = ({ title, description, keywords, image }) => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "S.N.K Fabrication Works",
+    "name": "SNK Build Fabric Solutions",
     "image": ogImage,
     "@id": "https://snk-fabrication-works.vercel.app/",
     "url": "https://snk-fabrication-works.vercel.app/",
